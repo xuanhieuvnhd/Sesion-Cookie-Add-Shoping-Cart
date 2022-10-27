@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cửa hàng</title>
+</head>
+<body>
+<p>
+    <a href="/shopping-cart">Giỏ hàng của bạn</a>
+</p>
+<table border="1">
+    <tr>
+        <td>Tên sản phẩm</td>
+        <td>Giá sản phẩm($)</td>
+        <td>Hành động</td>
+    </tr>
+    <th:block th:each="product:${products}">
+        <tr>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td><a th:href="@{/add/__${product.id}__(action='list')}">Thêm vào giỏ hàng</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
